@@ -1,6 +1,5 @@
 import java.awt.Image;
-import java.awt.Rectangle;
-import java.util.ArrayList;
+import java.awt.Rectangle;	
 
 public class Alien {
 	

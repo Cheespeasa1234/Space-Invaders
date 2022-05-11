@@ -41,7 +41,6 @@ public class Game extends JPanel implements MouseListener, KeyListener, FocusLis
 	private AssetManager am = new AssetManager("as/");
 	private Image playerImage = am.getImage("img/ship.png");
 	private Image explosion = am.getImage("img/dead.png");
-	private BufferedImage bl = Blur.blurredImage(AssetManager.imageToBufferedImage(am.getImage("img/Alien1-a.png")), 5);
 	private Image[] alien1Frames = {am.getImage("img/Alien1-a.png"),am.getImage("img/Alien1-b.png"),explosion};
 	private Image[] alien2Frames = {am.getImage("img/Alien2-a.png"),am.getImage("img/Alien2-b.png"),explosion};
 	private Image[] alien3Frames = {am.getImage("img/Alien3-a.png"),am.getImage("img/Alien3-b.png"),explosion};
@@ -124,6 +123,11 @@ public class Game extends JPanel implements MouseListener, KeyListener, FocusLis
 			g2.drawString("Firing timer: " + fireCooldown + " / " + maxCooldown, 0, 30);
 
 			g2.drawString(lives + "", 10, PREF_H - 10);
+		} else if(playState.equals("Paused")) {
+			String text = "Press <SPACE> to resume!";
+			FontMetrics fm = g2.getFontMetrics();
+			
+			g2.drawString(text, PREF_W/2 - fm.stringWidth(text)/2, 100);
 		}
 
 	}
